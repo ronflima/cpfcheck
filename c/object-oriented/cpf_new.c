@@ -39,9 +39,6 @@ cpf_new(const char *cpfChar)
   cpf->size = strlen(cpfChar);
   cpf_char_to_digits(cpfChar, cpf->digits);
   
-  /* First validation is done during construction: CPF has the right size */
-  cpf->valid = cpf->size == CPF_SIZE;
-
   return cpf;
 }
 

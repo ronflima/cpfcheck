@@ -26,7 +26,6 @@
 struct cpf_t {
   size_t size;
   unsigned *digits;
-  unsigned char valid;
 };
 
 #endif /* CPF_INTERNALS_H_ */

@@ -29,13 +29,13 @@ check_digit(cpf_t, unsigned);
 unsigned char
 cpf_is_valid(cpf_t cpf)
 {
-  if (!cpf || !cpf->valid || cpf_contains_single_digits(cpf)) {
+  if (!cpf || cpf->size != CPF_SIZE || cpf_contains_single_digits(cpf)) {
 	return (unsigned char)0;
-  }
+  }	
   unsigned ck_digit = check_digit(cpf, 11) * 10 + check_digit(cpf, 10);
   unsigned cpf_ck_digit = cpf_get_check_digits(cpf);
-  cpf->valid = (unsigned char)(ck_digit == cpf_ck_digit);
-  return cpf->valid;
+  unsigned char valid = (unsigned char)(ck_digit == cpf_ck_digit);
+  return valid;
 }
 
 static unsigned char
